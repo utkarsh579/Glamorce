@@ -1,0 +1,37 @@
+<mat-card mat-ripple [matRippleDisabled]="true" class="card-content">
+
+        <img src={{employee.profilePhoto}} alt="" width="150px" height="150px" style="border-radius: 50%;">
+        <mat-card-header>
+                <mat-card-title-group>
+                        <mat-card-title style="font-size:x-large; margin-bottom:20px; margin-top:10px;">
+                                Name: {{employee.name}}
+                        </mat-card-title>
+                        <mat-card-subtitle>
+                                Description: {{employee.address}}
+                        </mat-card-subtitle>
+                        <mat-card-subtitle>
+                                Proficiency: {{employee.proficiency}}
+                        </mat-card-subtitle>   
+                        <mat-card-subtitle style="font-size:large;padding-top:5px; color:black; font-weight:400;">
+                                <div class="slots">
+                                                Created Slots:
+                                        <div class="div" id="scroll-container">
+                                                <div class="time" *ngFor="let slot of appointments">
+                                                        <button mat-raised-button style="background-color:#4db8ff;color:white;">
+                                                         {{slot.startTime}}-{{slot.endTime}}
+                                                        </button>
+                                                </div>
+                                        </div>
+                                </div>
+                        </mat-card-subtitle>
+                </mat-card-title-group>
+        </mat-card-header>
+        <mat-card-actions class="button">
+                <button mat-raised-button class="createSlot"
+                                (click)="openDialog(employee.employeeEmail, employee.name, employee.status)">
+                                Create Slot
+                </button>
+                  
+        </mat-card-actions>
+       
+</mat-card>

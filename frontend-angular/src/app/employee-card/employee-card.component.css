@@ -1,0 +1,53 @@
+.card-content {
+    display: flex;
+    border-radius: 20px;
+  }
+
+mat-card-content button{
+    padding: 0rem 1rem;
+    display: block;
+    margin : 0.5rem
+  }
+  .button{
+    padding: 0%;
+    margin-left: auto;
+    margin-top: 4%;
+    margin-right: 4%;
+  }
+
+  .slots{
+    display: inline;
+    margin-top:15px;
+  }
+
+  #scroll-container {
+   margin-top: 5px;
+    border: none;
+    display: flex;
+    align-items: center;
+    overflow: auto;
+    width:80%;
+  }
+
+  #scroll-container::-webkit-scrollbar {
+    display: none;
+  }
+
+ 
+
+  .time{
+    padding-left: 12px;
+  }
+  .createSlot{
+    border-radius: 10px;
+    font-size: large;
+    background-color: #2199E8;
+    border: none;
+    color: #FFFFFF;
+    font-size: larger;
+    padding: 7px;
+    width: 120px;
+    transition: all 0.5s;
+    cursor: pointer;
+    margin: 1px;
+  }

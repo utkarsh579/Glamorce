@@ -1,0 +1,63 @@
+<div class="main">
+  <mat-card class="card">
+    <mat-card-header>
+      <mat-card-title>Manage Address</mat-card-title>
+    </mat-card-header>
+    <form class="form" [formGroup]="addressForm" novalidate (ngSubmit)="onSubmit()">
+      <div class="row">
+        <div class="col">
+          <mat-form-field class="full-width" appearance="outline">
+            <input matInput #pincode maxlength="6" placeholder="pincode" type="string" formControlName="pincode">
+            <mat-hint align="end">{{pincode.value.length}} / 6</mat-hint>
+          </mat-form-field>
+        </div>
+        <div class="col">
+          <mat-form-field appearance="outline" class="full-width">
+            <mat-label>House Number</mat-label>
+            <input matInput>
+          </mat-form-field>
+        </div>
+      </div>
+      <div>
+        <mat-form-field appearance="outline" class="full-width">
+          <mat-label>Address(Area and Street)</mat-label>
+          <textarea matInput></textarea>
+        </mat-form-field>
+      </div>
+
+      <div class="row">
+        <div class="col">
+          <mat-form-field class="full-width" appearance="outline">
+            <input matInput placeholder="City" formControlName="city">
+            <mat-error *ngIf="addressForm.controls['city'].hasError('required')">
+              City is <strong>required</strong>
+            </mat-error>
+          </mat-form-field>
+        </div>
+        <div class="col">
+          <mat-form-field class="full-width" appearance="outline">
+            <mat-select placeholder="State" formControlName="state">
+              <mat-option *ngFor="let state of states" [value]="state.abbreviation">
+                {{ state.name }}
+              </mat-option>
+            </mat-select>
+            <mat-error *ngIf="addressForm.controls['state'].hasError('required')">
+              State is <strong>required</strong>
+            </mat-error>
+          </mat-form-field>
+        </div>
+      </div>
+      <button mat-raised-button style="background-color: black; color: white;" type="submit">Submit</button> &nbsp;
+      &nbsp;
+      <button mat-raised-button type="submit">Cancel</button>
+    </form>
+
+   
+  </mat-card>
+
+  <div>
+    <mat-card>
+      <mat-card-content>{{user.name}} {{address.houseNo}}</mat-card-content>
+    </mat-card>
+  </div>
+</div>

@@ -1,0 +1,51 @@
+<app-navigation-bar></app-navigation-bar>
+<div class="body"> 
+
+  <div id="myDate">
+    <label>Select any date</label>
+    <input type="date" (change)="onDateChange()" [(ngModel)]="d1">
+  </div>
+
+
+<div class="card">
+
+  <mat-card *ngFor="let emp of employees | paginate: { itemsPerPage: 2, currentPage: p }"  class="card1">
+    <img class="image" src={{emp.profilePhoto.changingThisBreaksApplicationSecurity}}>
+    <mat-card-header>
+
+      <mat-card-title-group>
+        <mat-card-title style="margin-bottom:20px;">
+          {{emp.name}}
+        </mat-card-title>
+        <mat-card-subtitle>
+          Profieciency: {{emp.proficiency}}
+        </mat-card-subtitle>
+        <mat-card-subtitle>
+          Experience: {{emp.experience}} years
+        </mat-card-subtitle>
+        <mat-card-subtitle style="margin-bottom:0; font-size: large;color: rgb(43, 43, 43);">
+          Available slots: 
+          <app-employees-slots [employees]="emp" [date]="d"> </app-employees-slots>
+        </mat-card-subtitle>
+    </mat-card-title-group>
+
+</mat-card-header>
+<mat-card-actions class="appointment">
+      <button mat-raised-button matTooltip="Click to fix appointment" (click)="toCart(emp.employeeEmail)" class="appointmentBtn">Add To Cart</button>
+</mat-card-actions>
+    
+</mat-card>
+
+</div>
+</div>
+
+<footer>
+  <div class="paginator">
+    <pagination-controls class="page"
+                    previousLabel="Prev"
+                    nextLabel="Next"
+                    [responsive]="true"
+                    (pageChange)="p = $event"
+                    ></pagination-controls>
+  </div>
+</footer>

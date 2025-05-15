@@ -1,0 +1,50 @@
+<h1 mat-dialog-title>Create Slot</h1>
+<div mat-dialog-content>
+
+    <div class="example-container">
+        <form  (ngSubmit)="OnSubmit()" [formGroup]="createSlotForm">
+
+            
+            <!-- <mat-form-field appearance="outline"> -->
+                <mat-label>Service Time</mat-label>
+                <div formGroupName="timeForm">
+                <input type="text"matInput class="input"  formControlName="hour" placeholder="hh"> :
+                <input type="text" matInput class="input" formControlName="minute" placeholder="mm"> :
+                <input type="text" matInput class="input" formControlName="second" placeholder="ss"> 
+           
+            </div>
+              
+              <mat-form-field appearance="outline">
+                <input  matInput [matDatepicker]="picker1" [(ngModel)]="date" (dateChange)="onChange(date)" placeholder="Service Date" [formControl]="date2" [value]="date2">
+                <mat-datepicker-toggle matSuffix [for]="picker1" style="size:4%"></mat-datepicker-toggle>
+                <mat-datepicker #picker1 style="size:4%"></mat-datepicker>
+              </mat-form-field>
+
+            
+                <mat-form-field appearance="outline">
+                  <mat-label>Service</mat-label>
+                  <mat-select [(value)]="selectedValue">
+                      <mat-option  *ngFor="let service of services" [value]="service"  >
+                        <mat-card>
+                       Id: {{service.serviceId}} &nbsp; &nbsp; Name: {{service.serviceName}}   &nbsp; &nbsp;
+                       &nbsp; &nbsp; Time: {{ service.serviceTime}}  &nbsp; &nbsp; Price: {{ service.servicePrice}} 
+                        </mat-card>
+                    </mat-option>
+                  </mat-select>
+                </mat-form-field>
+              
+        </form>
+      </div>
+
+      <div mat-dialog-action [align]="'end'">
+        <button mat-raised-button style="color: white; background-color: rgb(50, 107, 240);"  (click)="onNoClick()">Close</button>
+        <button mat-raised-button style="color: white; background-color: rgb(50, 107, 240);; margin-left: 1rem;" (click)="OnSubmit()">Save</button>
+    </div>
+</div>
+
+
+
+
+
+
+

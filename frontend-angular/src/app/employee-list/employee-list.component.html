@@ -1,0 +1,12 @@
+
+<app-employee-card class="card" *ngFor="let employee of employees | filter: searchText  | paginate: { itemsPerPage: 2, currentPage: p } " [employee] = "employee" [services]="services"></app-employee-card>
+
+
+
+<pagination-controls
+    previousLabel="Prev"
+    nextLabel="Next"
+    [responsive]="true"
+    (pageChange)="p = $event"
+    class="page"
+  ></pagination-controls>

@@ -1,0 +1,20 @@
+<div class="image" style="background-image: url('./assets/Images/Feedback.jpg');">
+    <form  action="/action_page.php" class="container" (ngSubmit)="OnSubmit()" [formGroup]="feedbackForm">
+        <h1 class="heading">
+            GIVE FEEDBACK
+        </h1>
+        <div class="rating">
+           <textarea class="content" type="text" placeholder="How was your overall experience? What's that one thing you won't forget Glamorce for?" name="email"  formControlName="comments" required  rows="7" cols="80"></textarea>
+            <div class="stars">
+                <ngb-rating  formControlName="rating"  [max]="5" [(rate)]="starRating" [readonly]="false"></ngb-rating>
+            </div>
+            <div class="mainBtn">
+            <button type="submit" class="btn" >PUBLISH FEEDBACK</button>
+        </div>
+        </div>
+    </form>
+</div>
+
+
+
+

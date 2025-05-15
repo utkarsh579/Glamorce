@@ -1,0 +1,23 @@
+<app-navigation-bar></app-navigation-bar>
+
+
+<form class="form"  >
+    <mat-form-field appearance="outline">
+
+      <mat-label> Select Category</mat-label>
+    
+      <mat-select [(value)]="selectedValue">
+        <mat-option [value]="category.value" *ngFor="let category of categories" (click)="selectCategory()">{{ category.viewValue }}</mat-option>
+      </mat-select>
+    </mat-form-field>
+    &nbsp; &nbsp;
+    <span style="size:10%" >
+      <input  name="date" [(ngModel)]="today" type="date" [min]="todaysDate" style="font-size: larger; padding:2.5%; background-color: none;" required (change)="onChange(today)">
+    </span>
+  
+   
+   </form>
+      <app-employee-list id="employee-list-panel"  [employees]="employees" ></app-employee-list>
+  <!-- </div> -->
+  
+    

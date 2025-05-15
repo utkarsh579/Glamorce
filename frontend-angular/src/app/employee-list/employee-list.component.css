@@ -1,0 +1,11 @@
+.card{ 
+    /* margin: 0.5rem 2rem; */
+    width: 70%;
+    margin-left: 15%;
+    margin-bottom: 1%;
+    border-radius: 20px;
+}
+
+.page{
+    text-align: center;
+}

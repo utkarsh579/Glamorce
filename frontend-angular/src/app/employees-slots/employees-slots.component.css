@@ -1,0 +1,32 @@
+#scroll-container {
+     border: none;
+     display: flex;
+     align-items: center;
+     overflow: auto;
+     width:80%;
+   }
+ 
+   #scroll-container::-webkit-scrollbar {
+     display: none;
+   }
+   .time{
+    padding-left: 12px;
+  }
+  .button1 {
+    background-color: white;
+    color: black;
+    border: 0px solid #2199E8;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    /* box-shadow: rgba(0, 0, 0, 0.15) 0px 5px 15px 0px;    margin-bottom: 10px; */
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 0.0625em 0.0625em, rgba(0, 0, 0, 0.25) 0px 0.125em 0.5em, rgba(255, 255, 255, 0.1) 0px 0px 0px 1px inset;
+  }
+  .button1:hover {
+    background-color:#2199E8;
+    color: white;
+  }
+  .button1:focus{
+    background-color:#2199E8;
+    color: white;
+    box-shadow: rgb(204, 219, 232) 3px 3px 6px 0px inset, rgba(255, 255, 255, 0.5) -3px -3px 6px 1px inset;
+  }

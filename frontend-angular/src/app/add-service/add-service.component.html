@@ -1,0 +1,86 @@
+<app-navigation-bar></app-navigation-bar>
+<div>
+    <img class="image" src="./assets/Images/addService.jpg" alt="Photo">
+    <mat-card class="card">
+      <div style="margin-top: 5%;">
+        <mat-card-header>
+           <h1>Add Service <span style="color: rgb(255, 145, 0);">.</span></h1>
+         </mat-card-header>
+
+        <form (ngSubmit)="OnSubmit()" [formGroup]="serviceform">
+
+          <div class="row">
+            <mat-form-field class="input" appearance="outline">
+                <mat-label>Category </mat-label>
+            <input matInput type="text" formControlName="categoryName" />
+            <mat-error *ngIf="categoryName?.errors?.required">
+              category is required
+                </mat-error>
+                <mat-error *ngIf="categoryName?.errors?.minLength">
+                  category Should be of atleast 3 letters
+                  </mat-error>
+              </mat-form-field>
+          </div>
+
+        <div formGroupName="services">
+
+          <div class="row">
+            <mat-form-field class="name" appearance="outline" >
+                <mat-label>Service name </mat-label>
+            <input matInput type="text" formControlName="serviceName" />
+            <mat-error *ngIf="serviceName?.errors?.required">
+              name is required
+                </mat-error>
+              </mat-form-field>
+
+              <mat-form-field class="description" appearance="outline">
+                <mat-label>Description</mat-label>
+              <input matInput type="text" formControlName="serviceDescription" />
+              <mat-error *ngIf="serviceDescription?.errors?.required">
+                description is required
+              </mat-error>
+            </mat-form-field>
+          </div>
+
+          <div class="row">
+            <mat-form-field class="age" appearance="outline">
+                <mat-label>Time</mat-label>
+              <input matInput type="number" formControlName="serviceTime" />
+              <mat-error *ngIf="serviceTime?.errors?.required">
+                time is required 
+              </mat-error>
+            </mat-form-field>
+            
+            <mat-form-field class="mobile" appearance="outline">
+              <input matInput type="number" formControlName="servicePrice" />
+                  <mat-label>Price</mat-label>
+              <mat-error *ngIf="servicePrice?.errors?.required">
+                price is required 
+              </mat-error>
+            </mat-form-field>
+          </div>
+
+          <div class="row">
+            <div class="upload">
+              <label for="images" class="drop-container">
+                <span class="drop-title">Drop files here</span>
+                or
+                <input type="file" (change)="onChange($event)" id="images" accept="image/*" required>
+              </label>
+            </div>
+          </div>
+          
+        </div>
+
+        <div class="row">
+          <button mat-raised-button [disabled]="!serviceform.valid" type="submit">Add service</button>
+        </div>
+        
+        </form>
+        
+      </div>
+    </mat-card>
+</div>
+
+
+

@@ -1,0 +1,64 @@
+<app-navigation-bar></app-navigation-bar>
+<div class="main">
+    <div *ngIf="total">
+        
+        <mat-card class="grid-container">
+            
+            <mat-card class="grid-item" >
+                <div *ngFor="let cart of cartService |paginate: { itemsPerPage: 3, currentPage: p }" class="indCards">
+                    <mat-card class="grid-contain">
+                        <div class="image">
+                            <img src={{cart.serviceImage.changingThisBreaksApplicationSecurity}} style="width: 120px; height:120px; padding-top: 5px;">
+                        </div>
+                        <div class="desc">
+                            <h3><b>{{cart.serviceName}}: {{cart.serviceTime}}mins</b></h3>
+                            <p>Employee : {{cart.employeeName}}</p>
+                            <p>Slot Time: &nbsp;<button style="border: none;">{{cart.slotTime}}</button></p>
+                            
+                        </div>
+                        <div class="remove">
+                            <p>Price: &nbsp;<b>₹ {{cart.servicePrice}}</b></p>
+                            <p>Proficiency: {{cart.proficiency}}</p>
+                            <p>Experience: {{cart.experience}}</p> 
+                        </div>
+                        <div>
+                            <button class="delButton" (click)="delete(cart.cartId)" matTooltip="Click to remove from cart"><mat-icon>delete</mat-icon></button>
+    
+                        </div>
+                    </mat-card>  
+                </div>
+                <pagination-controls class="page"
+                    previousLabel="Prev"
+                    nextLabel="Next"
+                    [responsive]="true"
+                    (pageChange)="p = $event"
+                    ></pagination-controls>
+                </mat-card >
+            <mat-card class="grid-item1">
+                <p style="font-size:20px ;"><b>ORDER DETAILS</b></p>
+                <hr>
+                <h3>Number of Services: <span class="a">{{noOfService}}</span></h3>
+                <h3>Sub-Total: <span class="b">₹{{subTotal}}</span></h3>
+                <h3>Discount: <span class="c">5%</span></h3>
+                <h3>Total Deductable Amount: <span style="color:red ;" class="d">-₹{{(subTotal*5)/100}}</span></h3>
+                <h3>Booking Charges:<span style="color: green;" class="e">FREE</span></h3>
+                <h3><b>Total Amount:<span class="f"> ₹{{total}} </span></b></h3> <br><br>
+                <button mat-raised-button  class="pay" (click)="onSubmit()"><i class="fa fa-credit-card"></i>&nbsp;&nbsp;&nbsp;&nbsp;Proceed to payment </button>
+            </mat-card>
+
+        </mat-card>
+        
+            
+        </div>
+    
+    <div *ngIf="!total">
+        <mat-card class="emptyCart">
+            <img src="../../assets/Images/cartt.png" style="width:50% ;height: 50%;"><br><br>
+            <h3 style="color:red ;"> <b>Oops!  Your cart is Empty!</b> </h3>
+            <p>Looks like you hadn't added any services to your cart yet</p>
+            <button mat-raised-button routerLink="/service" >Add services</button>
+
+        </mat-card>
+    
+    </div>
+</div>

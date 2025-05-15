@@ -1,0 +1,111 @@
+.main{
+    position: fixed;
+    background-color: #E9FFFF;
+    width:100%;
+    height: 100%;
+}
+.grid-container{
+    display: grid;
+    grid-template-columns: 70% 30%;
+    gap:20px;
+    background-color: transparent;
+    border: none;
+    box-shadow:none ;
+     margin-right: 10%;
+    margin-left: 6%;  
+}
+.grid-item{
+    background-color: transparent;
+    border: none;
+    box-shadow:none ;
+}
+.grid-item1{
+    /* display: inline-block; */
+    background-color: white;
+    border-radius: 15px;
+    bottom: 17%;
+    margin-top: 35%;
+    /* top:5%; */
+}
+.grid-item1 p{
+    text-align: center;
+}
+.grid-contain{
+    display: grid;
+    grid-template-columns: 20% 40% 30% 10%;
+    padding: 10px;
+    text-align: center;
+    margin-top: 1%;
+} 
+.delButton{
+    position: relative;
+    border: none;
+    background-color: white;
+    transform: scale(1.2);
+    top:calc(30%);
+    float: center;
+    
+}
+.delButton:hover{
+    border: none;
+    /* font-weight: bold; */
+    background-color: white;
+    color: blue;
+}
+.indCards{
+    background-color: white;
+   }
+.service{
+    /* position:absolute; */
+     margin-left: 50.5%;
+    margin-top: 1.5%;
+   background-color: #2199E8;
+}
+.float-right{
+    padding: 10px;
+    padding-left: 30%;
+}
+.emptyCart{
+    text-align: center;
+    width: 60%;
+    height:40%;
+    margin-left: 20%;
+    margin-top: 10%;
+}
+.head{
+    margin-left: 15%;
+    padding-top: 3%;
+    font-size: 30px;
+    margin-bottom: 0%;
+    margin-right: 0%;
+}
+.pay{
+    background-color: #2199E8;
+    /* margin-left: 27%; */
+    margin-left: 25%;
+}
+.pagination{
+    background-color: transparent;
+    box-shadow:none ;
+}
+.page{
+    position: absolute;
+    margin-top:1%;
+    left: 33%;
+}
+.a, .b, .c, .d, .e,.f{
+    float:right;
+}
+.para{
+    color:blue;
+}
+.para:hover{
+    color: red;
+}
+pagination-controls{
+    padding: 10px;
+    margin-right: 0%;
+}
+.bottom{
+    display: inline;
+}

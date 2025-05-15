@@ -1,0 +1,69 @@
+.image{
+    height: 100%;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
+}
+
+.btn {
+    background-color: black;
+    color: white;
+    padding: 1rem 1rem;
+    border: none;
+    cursor: pointer;
+    width: 40%;
+    opacity: 0.9;
+    
+    
+  }
+
+
+  .container {
+    position: absolute;
+    right: 30%;
+    border-color: black;
+    margin-top: 6%;
+    max-width: 40%;
+    border-radius: 40px;
+    padding: 25px 40px 30px 30px ;
+    background-color: rgba(252, 252, 252, 0.545);
+    
+    /* box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px 0px; */
+}
+ngb-rating {
+    color: black;
+    font-size: 3rem;
+    margin-right: 3rem;
+}
+
+.content{
+    max-width: 90%;
+}
+
+.stars{
+    /* margin-left: 14%; */
+    text-align: center;
+    margin-bottom: 1.5rem;
+    margin-top: 1rem;
+}
+
+.heading{
+    font-size: 2.5em;
+    /* margin-left: 28%; */
+    text-align: center;
+    margin-bottom: 3rem;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
+
+.rating {
+    display: inline-block;
+    width: 100%;
+    /* margin-top: 40px;
+    padding-top: 40px; */
+    text-align: center;
+  }
+  
+.mainBtn{
+    margin-right: 8%;
+}

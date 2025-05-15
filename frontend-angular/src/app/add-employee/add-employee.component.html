@@ -1,0 +1,189 @@
+<app-navigation-bar></app-navigation-bar>
+<div>
+  <img class="image" src="./assets/Images/registerEmpBG.jpg" alt="Photo">
+
+  <mat-card class="card">
+    <div style="margin-top: 3%;">
+      <mat-card-header>
+        <h1>Employee Registration <span style="color: rgb(255, 145, 0);">.</span></h1>
+      </mat-card-header>
+
+      <form [formGroup]="registerform">
+
+          <div class="row">
+            <mat-form-field class="name" appearance="outline">
+                <mat-label>Name</mat-label>
+            <input matInput type="text" formControlName="name">
+            <mat-error *ngIf="name?.errors?.required">
+                Name is required
+                </mat-error>
+                <mat-error *ngIf="name?.errors?.minLength">
+                  Name Should be of atleast 3 letters
+                  </mat-error>
+              </mat-form-field>
+
+              <mat-form-field class="age" appearance="outline">
+                <mat-label>Age</mat-label>
+              <input matInput type="number" formControlName="age" />
+              <mat-error *ngIf="age?.errors?.required">
+                Age is required 
+              </mat-error>
+              <mat-error *ngIf="age?.errors?.min && age?.errors?.max">
+                Age should be min 18 and max 36 
+              </mat-error>
+            </mat-form-field>
+          </div>
+
+          <div class="row">
+            <mat-form-field class="email" appearance="outline" >
+                <mat-label>Email</mat-label>
+            <input matInput type="text" formControlName="employeeEmail">
+            <mat-error *ngIf="employeeEmail?.errors?.required">
+                Email Id is required
+                </mat-error>
+                <mat-error *ngIf="employeeEmail?.errors?.email">
+                  Email Id should be in format example@gmail.com
+                  </mat-error>
+              </mat-form-field>
+
+            <mat-form-field class="password" appearance="outline">
+                <mat-label>Password</mat-label>
+                <input matInput type="password" formControlName="employeePassword" />
+                <mat-error *ngIf="employeePassword?.errors?.required">
+                    Password is required 
+                    </mat-error>
+                    <mat-error *ngIf="employeePassword?.errors?.pattern">
+                      Password should have min 6 letter, with a symbol, upper and lower case letters and a number.
+                  </mat-error>
+              </mat-form-field>
+          
+          </div>
+
+          <div class="row">
+            <mat-form-field class="mobile" appearance="outline">
+              <input matInput type="text" formControlName="mobileNo" />
+              <mat-label>Mobile No</mat-label>
+              <mat-error *ngIf="mobileNo?.errors?.required">
+                MobileNo is required
+              </mat-error>
+              <mat-error *ngIf="mobileNo?.errors?.min && mobileNo?.errors?.max">
+                MobileNo should of 10 digit
+              </mat-error>
+            </mat-form-field>
+
+            <mat-form-field class="experience" appearance="outline">
+                <mat-label>Experience</mat-label>
+              <input matInput type="text" formControlName="experience">
+              <mat-error *ngIf="experience?.errors?.required">
+                Experience is required
+              </mat-error>
+            </mat-form-field>
+          </div>
+
+          <div class="row">
+            <mat-form-field class="address" appearance="outline">
+                <mat-label>Description</mat-label>
+              <input matInput type="text" formControlName="address">
+              <mat-error *ngIf="address?.errors?.required">
+                Address is required
+              </mat-error>
+            </mat-form-field>
+          </div>
+
+          <div class="row">
+            <mat-radio-group formControlName="proficiency">
+                <label class="radio-group1">Proficiency</label>
+              <mat-radio-button  value="Body"><span class="radio">Body</span></mat-radio-button>
+              <mat-radio-button value="Skin"><span class="radio">Skin</span></mat-radio-button>
+              <mat-radio-button value="Hair"><span class="radio">Hair</span></mat-radio-button>
+              <mat-radio-button value="Face"  class="radio-button1"><span class="radio">Face</span></mat-radio-button>
+              <mat-radio-button value="Hand_Feet" class="radio-button2"><span class="radio">Hand & Feet</span></mat-radio-button>
+                <mat-error *ngIf="proficiency?.errors?.required && proficiency.touched">
+                  Proficiency can't be empty
+                </mat-error>
+            </mat-radio-group>
+          </div>
+
+          <div class="row">
+            <mat-radio-group formControlName="gender">
+                <label class="radio-group2">Gender</label>
+              <mat-radio-button value="Male"><span class="radio">Male</span></mat-radio-button>
+              <mat-radio-button value="Female"><span class="radio">Female</span></mat-radio-button>
+                <mat-error *ngIf="gender?.errors?.required && gender.touched">
+                 Gender can't be empty
+                </mat-error>
+            </mat-radio-group>
+          </div>
+
+          <div class="row">
+           <div class="upload">
+            <label for="images" class="drop-container">
+              <span class="drop-title">Drop files here</span>
+              or
+              <input type="file" (change)="onChange($event)" id="images" accept="image/*" required>
+            </label>
+          </div>
+          </div> 
+
+        <div class="row">
+          <button mat-raised-button [disabled]="!registerform.valid" type="submit" (click)="OnSubmit()">Register</button>
+        </div>
+
+        </form>
+        
+      </div>
+    </mat-card>
+</div>
+
+
+
+        <!-- <div class="row">
+          <mat-form-field class="input" appearance="outline">
+            <mat-label>Address</mat-label>
+            <input matInput type="text" formControlName="address">
+            <mat-error *ngIf="address?.errors?.required">
+              Address is required
+            </mat-error>
+          </mat-form-field>
+        </div>
+
+
+
+        <div class="row">
+          <mat-radio-group formControlName="proficiency">
+            <label class="radio-group1">Proficiency</label>
+            <mat-radio-button value="Body">Body Service</mat-radio-button>
+            <mat-radio-button value="Skin">Skin</mat-radio-button>
+            <mat-radio-button value="Hair">Hair</mat-radio-button>
+            <mat-radio-button value="Face" class="radio-button1">Face</mat-radio-button>
+            <mat-radio-button value="Hand_Feet" class="radio-button2">Hand & Feet</mat-radio-button>
+            <mat-error *ngIf="proficiency?.errors?.required && proficiency.touched">
+              Proficiency can't be empty
+            </mat-error>
+          </mat-radio-group>
+        </div>
+
+        <div class="row">
+          <mat-radio-group formControlName="gender">
+            <label class="radio-group2">Gender</label>
+            <mat-radio-button value="Male">Male</mat-radio-button>
+            <mat-radio-button value="Female">Female</mat-radio-button>
+            <mat-error *ngIf="gender?.errors?.required && gender.touched">
+              Gender can't be empty
+            </mat-error>
+          </mat-radio-group>
+        </div>
+        <div class="row">
+          <<img width="50px" height="50px" [src]="file" >    -->
+          <!-- <input type="file" (change)="onChange($event)"> -->
+          <!-- <button (click)="onUpload()" class="btn btn-success">Upload</button>  -->
+        <!-- </div>
+        <div class="row">
+          <button mat-raised-button [disabled]="!registerform.valid" type="submit"
+            (click)="OnSubmit()">Register</button>
+        </div>
+
+      </form>
+    </div>
+  </mat-card>
+</div>  -->

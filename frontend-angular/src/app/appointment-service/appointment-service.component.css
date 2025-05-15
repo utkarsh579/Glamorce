@@ -1,0 +1,84 @@
+
+.body{
+  background: #F2EBE8;
+}
+.time{
+  padding-left: 12px;
+}
+.date{
+  margin-left: 70em;
+  margin-top: 2%;
+}
+#myDate{
+  margin-top: 2%;
+  margin-left: 14%;
+  font-size: larger; 
+  background-color: none;
+}
+.card{
+  margin-left: 15em;
+  margin-right: 15em;
+  background-color: transparent;
+  border: none;
+  box-shadow:none ;
+}
+.image{
+  width:150px;
+  height:150px;
+  border-radius: 50%; 
+  margin-top:2%; 
+  margin-left:2%;
+  
+}
+.appointment{
+  margin-left: auto;
+  margin-top: 4%;
+  margin-right: 4%;
+}
+
+footer{
+  margin-top: 2%;
+  margin-bottom: 2%;
+  margin-left: 40%;
+}
+.appointmentBtn{
+  border-radius: 10px;
+    font-size: large;
+    background-color: #2199E8;
+    border: none;
+    color: #FFFFFF;
+    font-size: larger;
+    padding: 5px;
+    width: 120px;
+    transition: all 0.5s;
+    cursor: pointer;
+    margin: 1px;
+}
+.card1{
+  margin-top: 2%;
+  display: flex;
+  border-radius: 20px;
+}
+/* #myDate{
+  
+} */
+label {
+  font-size:larger;
+  display: block;
+}
+input[type="date"]{
+  background-color: #0080ff;
+  padding: 10px;
+  font-family: "Roboto Mono",monospace;
+  color: #ffffff;
+  font-size: 15px;
+  border: none;
+  outline: none;
+  border-radius: 5px;
+}
+::-webkit-calendar-picker-indicator{
+  background-color: #ffffff;
+  padding: 5px;
+  cursor: pointer;
+  border-radius: 3px;
+}

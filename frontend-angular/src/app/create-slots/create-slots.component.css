@@ -1,0 +1,61 @@
+ mat-form-field {
+ width: 100%;
+}
+
+.date{
+  display: flex;
+}
+
+.input{
+   margin: 1%;
+   width:14%;
+   text-align: center;
+   border: 1px solid #000000;
+}
+
+/* .container{
+    display: block;
+    margin: 5rem 6rem;
+    height: 40rem;
+    width: 90rem;
+    position: absolute;
+    background-color: rgb(251, 248, 251);
+    
+  }
+
+  .input-fields{
+    margin: 10% 31%;
+    
+  }
+
+  label{
+    display: inline-block;
+    text-align: right;
+    width: 150px;
+    margin-right: 3rem;
+  }
+
+  .label{
+    margin-top: 2rem;
+  }
+
+  .btn {
+    background-color: black;
+    color: white;
+    padding: 9px 20px;
+    border: none;
+    cursor: pointer;
+    width: 25%;
+    opacity: 0.9;
+    margin-left: 37%;
+    margin-top: 3rem;
+  }
+
+  .input{
+    border-radius: 8px;
+  }
+
+  
+
+ 
+ */

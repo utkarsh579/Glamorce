@@ -1,0 +1,38 @@
+<mat-card mat-ripple [matRippleDisabled]="true" class="card-content">
+
+    <img src={{empData.profilePhoto.changingThisBreaksApplicationSecurity}} alt="" width="180px" height="180px" style="border-radius: 50%;">
+       <mat-card-content>
+        <button mat-raised-button
+            aria-label="Button that displays a tooltip when focused or hovered over">
+            {{empData.name}}
+    </button>
+    <button mat-raised-button
+            aria-label="Button that displays a tooltip when focused or hovered over">
+            {{empData.experience}}
+    </button>
+    <button mat-raised-button
+            aria-label="Button that displays a tooltip when focused or hovered over">
+            {{empData.proficiency}}
+    </button>
+    <div class="slots">
+            <div class="div" id="scroll-container"  >
+                    
+                            <!-- <span  class="div" *ngFor="let slot of employee.bookedSlots" >
+                                    {{ slot }}
+                            </span> -->
+                     
+                    
+                  </div>
+            
+    </div>
+        </mat-card-content>
+        <mat-card-actions>
+            <button style="color: black;" mat-icon-button><mat-icon>edit</mat-icon></button>
+            <button style="color: black;"  mat-icon-button><mat-icon>delete</mat-icon></button>
+        </mat-card-actions>
+      </mat-card>
+    
+    
+    
+    
+    
