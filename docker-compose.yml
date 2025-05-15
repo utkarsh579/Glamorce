@@ -1,0 +1,193 @@
+version: "2"
+services:
+
+
+  prometheus:
+    container_name: prom
+    image: prom/prometheus
+    restart: always
+#        network_mode: "host"
+    hostname: localhost
+    volumes:
+      - ./prometheus.yml:/etc/prometheus/prometheus.yml
+    ports:
+      - 9090:9090
+
+  grafana:
+    container_name: graf
+    image: grafana/grafana
+    restart: always
+    #    network_mode: "host"
+    hostname: localhost
+    ports:
+      - 3000:3000
+
+
+
+  salon-service:
+    image: salonservice-image
+    container_name: salon-service_container
+    build: salon-service/
+    restart: always
+    hostname: localhost
+    network_mode: host
+    ports:
+      - 8085:8085
+    depends_on:
+      - mongodb
+
+  appointment-service:
+    image: appointmentservice-image
+    container_name: appointment-service_container
+    build: appointment-service/
+    restart: always
+    hostname: localhost
+    network_mode: host
+    ports:
+      - 8081:8081
+    depends_on:
+      - mongodb
+
+  cart:
+    image: cart-image
+    container_name: cart_container
+    build: cart/
+    restart: always
+    hostname: localhost
+    network_mode: host
+    ports:
+      - 8082:8082
+    depends_on:
+      - mongodb
+
+  feedback-service:
+    image: feedbackservice-image
+    container_name: feedback-service_container
+    build: feedback-service/
+    restart: always
+    hostname: localhost
+    network_mode: host
+    ports:
+      - 8083:8083
+    depends_on:
+      - mongodb
+
+  payment-service:
+    image: paymentservice-image
+    container_name: payment-service_container
+    build: payment-service/
+    restart: always
+    hostname: localhost
+    network_mode: host
+    ports:
+      - 8084:8084
+    depends_on:
+      - mongodb
+
+  user-service:
+    image: userservice-image
+    container_name: user-service_container
+    build: user-service/
+    restart: always
+    hostname: localhost
+    network_mode: host
+    ports:
+      - 8087:8087
+    depends_on:
+      - mongodb
+
+  email-service:
+    image: email-image
+    container_name: email_container
+    build: email-service/
+    restart: always
+    hostname: localhost
+    network_mode: host
+    ports:
+      - 8086:8086
+
+  mongodb:
+    image: mongo:latest
+    container_name: mongo-container
+    network_mode: host
+    hostname: localhost
+    ports:
+      - 27017:27017
+
+
+  mysql:
+    container_name: mysql
+    image: mysql:8
+    hostname: localhost
+    ports:
+      - 3306:3306
+    environment:
+      - MYSQL_DATABASE=authenticationDb
+      - MYSQL_ROOT_PASSWORD=root@123
+      - MYSQL_PASSWORD=root@123
+
+  rabbitmq:
+    image: rabbitmq:3-management
+    container_name: rabbitmq
+    ports:
+      - 15672:15672
+      - 5672:5672
+
+  eureka-server:
+    container_name: eureka-server
+    build: ./eureka-server
+    hostname: localhost
+    network_mode: host
+    ports:
+      - 8761:8761
+    restart: always
+
+  product-webapp:
+    container_name: product-webapp
+    build: ./product-webapp
+    hostname: localhost
+    network_mode: host
+    ports:
+      - 4200:4200
+    restart: always
+
+  api-gateway:
+    container_name: api-gateway
+    build: ./api-gateway
+    hostname: localhost
+    network_mode: host
+    ports:
+      - 8080:8080
+    restart: always
+
+  neo4j:
+    image: neo4j:4.2.3
+    container_name: neo4j
+    restart: always
+    network_mode: "host"
+    ports:
+      - 7474:7474
+      - 7687:7687
+    environment:
+      NEO4J_AUTH: neo4j/password
+
+  product-recommendation-service:
+    container_name: recommendation-service
+    build: recommendation-service/
+    hostname: localhost
+    network_mode: host
+    ports:
+      - 8282:8282
+    restart: always
+
+  authentication-service:
+    image: authentication-image
+    container_name: authentication-service_container
+    build: authentication-service/
+    restart: always
+    hostname: localhost
+    network_mode: host
+    ports:
+      - 8088:8088
+    depends_on:
+      - mysql
