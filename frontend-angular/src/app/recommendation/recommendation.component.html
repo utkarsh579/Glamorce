@@ -1,0 +1,32 @@
+<app-navigation-bar></app-navigation-bar>
+<div class="container-fluid">
+    <div >
+        <h2 class="heading">Recommended Services for you ! 
+            <mat-icon color="dark">mood</mat-icon>
+        </h2>
+    </div>
+    <div class="cards" *ngFor = "let service of services | paginate: { itemsPerPage: 2, currentPage: p }">
+        
+        <mat-card class="example-card">
+                <img class="image" src={{service.serviceImage.changingThisBreaksApplicationSecurity}} alt="..">
+        <div class="row">
+            <mat-card-header class="col">
+              <mat-card-title>{{ service.serviceName }}</mat-card-title>
+              <mat-card-subtitle>{{ service.serviceDescription }}</mat-card-subtitle>
+            </mat-card-header>
+
+            <mat-card-content class="col">
+              <p> <span>Price&nbsp; </span>-&nbsp; ₹{{service.servicePrice}}</p>
+            </mat-card-content>
+        </div>
+        <div class="cart_button">
+                <button class="select" routerLink="/appointment-service/{{service.serviceId}}"><span>Select </span></button>
+        </div>
+              
+          </mat-card>
+    </div>
+
+    <pagination-controls previousLabel="Prev" nextLabel="Next"[responsive]="true" 
+        (pageChange)="p = $event" class="float-right"></pagination-controls>
+
+</div>

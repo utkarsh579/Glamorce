@@ -1,0 +1,68 @@
+
+<mat-toolbar class="nav">
+    
+    <a routerLink="/" style="margin-right: -890px;"><img src="../../assets/Images/logo.jpg" alt="" style="width: 5%; border-radius: 10%;"></a>
+   
+    <a routerLink="/" style="text-decoration:none; color:white;">
+      <span class="name">Glamorce</span>
+    </a>
+    
+    
+   <span class="example-spacer"></span>
+   <button mat-icon-button class="example-icon favorite-icon" aria-label="Example icon-button with heart icon">
+    <mat-icon *ngIf="account" matTooltip="Click to Login" class="account" routerLink="/loginView">login</mat-icon>
+  </button>
+  
+    <ngx-letters-avatar 
+    *ngIf="!account"
+    id="avatar"
+    [avatarName]="name" 
+    [width]="40" 
+    [circular]="true"
+    fontFamily="Open Sans"></ngx-letters-avatar>
+    <button mat-icon-button *ngIf="account" class="register"  matTooltip="Click to Register" class="example-icon favorite-icon" aria-label="Example icon-button with heart icon">
+      <img  class="registericon" src="../../assets/Images/register-icon.png" routerLink="/register"  >
+    </button>
+    <!-- <button mat-icon-button *ngIf="!admin"  class="empregister"  matTooltip="Click to Register Employee" class="example-icon favorite-icon" aria-label="Example icon-button with heart icon">
+      <img  class="empregistericon" src="../../assets/Images/register-icon.png" >
+    </button> -->
+   <button mat-icon-button routerLink="/cart"  *ngIf="!account && admin" class="example-icon favorite-icon" aria-label="Example icon-button with heart icon">
+     <mat-icon>shopping_cart</mat-icon>
+   </button>
+   <button mat-icon-button [matMenuTriggerFor]="menu" aria-label="icon-button with a menu">
+    <mat-icon>more_vert</mat-icon>
+  </button>
+  
+  <mat-menu #menu="matMenu">
+    
+    <button mat-menu-item *ngIf="!account && admin" routerLink="/profile" >
+      <mat-icon> account_circle </mat-icon>
+      <span>Profile</span>
+    </button>
+    <button mat-menu-item *ngIf="!admin" routerLink="/add-services" >
+      <mat-icon> bubble_chart </mat-icon>
+      <span>Add Services</span>
+    </button>
+    <button mat-menu-item *ngIf="!admin" routerLink="/adminDashboard" >
+      <mat-icon>dashboard</mat-icon>
+      <span>DashBoard</span>
+    </button>
+    <button mat-menu-item *ngIf="!admin" routerLink="/registerEmployee" >
+      <mat-icon> account_circle </mat-icon>
+      <span>Register Employee</span>
+    </button>
+    <button mat-menu-item routerLink="/service">
+      <mat-icon>content_cut</mat-icon>
+      <span>Services</span>
+    </button>
+    <button mat-menu-item routerLink="/recommendation">
+      <mat-icon>notifications_on</mat-icon>
+      <span>Recommendations</span>
+    </button>
+    <button mat-menu-item *ngIf="!account" (click)="logout()">
+      <mat-icon>logout</mat-icon>
+      <span>Logout</span>
+    </button>
+  </mat-menu>
+ </mat-toolbar>
+    

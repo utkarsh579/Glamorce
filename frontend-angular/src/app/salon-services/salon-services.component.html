@@ -1,0 +1,53 @@
+<app-navigation-bar></app-navigation-bar>
+
+<div class="container-fluid" style="padding-left:0;">
+  <img class="image" src="./assets/Images/salonBG.jpg" alt="Photo">
+  <div class="row">
+    <div class="col-3" style="padding:0%;">
+      <h1 class="Category">Categories</h1>
+      <mat-card class="Bigcategorycard"  >
+        <mat-card class="categorycard button1"    *ngFor="let category of allCategories">
+          <button class="categorybutton button1"   (click)="gvshgvsav(category)">{{category}}</button>
+        </mat-card>
+      </mat-card>
+    </div>        
+
+    <div class="col-9" style="padding:0%;">
+
+      <div class="services body">
+        <div *ngIf="true">
+          <mat-card class="service" *ngFor="let salondata of servicesData | paginate: { itemsPerPage: 3, currentPage: p } ">
+                <img class="in-img" mat-card-md-image src="{{salondata.serviceImage.changingThisBreaksApplicationSecurity}}">
+                  <mat-card-header>
+                    <mat-card-title-group class="header">
+                      <mat-card-title style="font-size:x-large;">
+                        {{salondata.serviceName}}
+                      </mat-card-title>
+                      <mat-card-subtitle class="des">
+                        {{salondata.serviceDescription}}
+                      </mat-card-subtitle>
+                      <mat-card-subtitle>
+                        {{salondata.serviceTime}} min
+                      </mat-card-subtitle>
+                      <mat-card-subtitle style="font-size:large;padding-top:5px;">
+                        ₹ {{salondata.servicePrice}}
+                      </mat-card-subtitle>
+                    </mat-card-title-group>
+                  </mat-card-header>
+                  <mat-card-actions class="button">
+                    <button class="select" routerLink="/appointment-service/{{salondata.serviceId}}"><span>Select </span></button>
+                  </mat-card-actions>
+          </mat-card>
+      </div>
+    </div>
+
+    <div class="page">
+      <pagination-controls previousLabel="Prev" nextLabel="Next" [responsive]="true"
+            (pageChange)="p = $event" class="float-right" >
+      </pagination-controls>
+    </div>
+
+  </div>
+  </div>
+</div>
+

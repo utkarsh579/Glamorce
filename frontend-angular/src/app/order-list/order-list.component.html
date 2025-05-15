@@ -1,0 +1,40 @@
+<app-navigation-bar></app-navigation-bar>
+<div class="body">
+    <mat-card class="big-card">
+            <h1>Order History</h1>
+        <mat-accordion *ngFor="let order of orderdetails  | paginate: { itemsPerPage: 3, currentPage: p }">
+            <mat-expansion-panel class="inner-card">
+            
+                <mat-expansion-panel-header>
+                    <mat-panel-title>
+                        <img class="image" src={{order.serviceImage.changingThisBreaksApplicationSecurity}} alt="...">
+                        <p>
+                            <span class="cardTitle">{{order.serviceName}}</span>
+                            <span style="color:rgb(230, 172, 65);">{{order.serviceDescription}}</span>
+                        </p>
+                    </mat-panel-title>
+                    <mat-panel-description>
+                        <span class="date"> {{order.date}} </span> 
+                        ₹ {{order.servicePrice}}
+                    </mat-panel-description>
+                    <!-- <button class="feedback" mat-raised-button routerLink="/feedback/{{order.appointmentId}}" >Feedback</button> -->
+                </mat-expansion-panel-header>
+
+                <div class="inside-details">
+                    <p>Appointment Id - &nbsp;<span>{{order.appointmentId}}</span></p>
+                    <p>Service time - &nbsp; <span style="padding-left: 15px;"> {{order.serviceTime}}min </span></p> 
+                    <p>Booked slot - &nbsp; <span style="padding-left: 18px;"> {{order.slotTime}} </span></p>
+                    <p>Expert - &nbsp; <span style="padding-left: 50px;">{{order.employeeName}}</span> 
+                        <span style="color: rgb(122, 122, 122);"> 
+                            &nbsp;&nbsp;(Expertise - <span style="color:rgb(233, 178, 77);">{{order.employeeProficiency}}</span>)
+                        </span> 
+                    </p>
+                </div>
+            </mat-expansion-panel>
+        </mat-accordion>
+        <div class="page">
+            <pagination-controls previousLabel="Prev" nextLabel="Next"[responsive]="true" 
+            (pageChange)="p = $event" class="float-right"></pagination-controls>
+        </div>
+    </mat-card>
+</div>

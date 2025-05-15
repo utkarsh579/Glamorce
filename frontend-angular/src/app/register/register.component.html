@@ -1,0 +1,106 @@
+<mat-toolbar class="nav">
+      
+  <a routerLink="/" style="margin-right: -890px;"><img src="../../assets/Images/logo.jpg" alt="" style="width: 5%; border-radius: 10%;"></a>
+ 
+  <a routerLink="/" style="text-decoration:none; color:white;">
+    <span class="name">Glamorce</span>
+  </a>
+</mat-toolbar>
+<div>
+    <img class="image" src="./assets/Images/RegisterBG.jpg" alt="Photo">
+    <mat-card class="card">
+      <div style="margin-top: 5%;">
+        <mat-card-header>
+          <!-- <a routerLink="/"><img class="logo" src="./assets/Images/logo.jpg" alt=".."></a> -->
+           <h1>Register for Glamorce <span style="color: rgb(255, 145, 0);">.</span></h1>
+          </mat-card-header>
+          <div class="login">
+            <p>Already A Member? <a routerLink="/loginView">Log In</a></p>
+          </div>
+        <form (ngSubmit)="OnSubmit()" [formGroup]="registerform">
+
+          <div class="row">
+            <mat-form-field class="input" appearance="outline">
+                <mat-label>Name</mat-label>
+            <input matInput type="text" formControlName="name">
+            <mat-error *ngIf="name?.errors?.required">
+                Name is required
+                </mat-error>
+                <mat-error *ngIf="name?.errors?.minLength">
+                  Name Should be of atleast 3 letters
+                  </mat-error>
+              </mat-form-field>
+          </div>
+
+          <div class="row">
+            <mat-form-field class="email" appearance="outline" >
+                <mat-label>Email</mat-label>
+            <input matInput type="text" formControlName="customerEmail">
+            <mat-error *ngIf="customerEmail?.errors?.required">
+                Email Id is required
+                </mat-error>
+                <mat-error *ngIf="customerEmail?.errors?.email">
+                  Email Id should be in format example@gmail.com
+                  </mat-error>
+              </mat-form-field>
+              <mat-form-field class="mobileNo" appearance="outline" >
+                <mat-label>Mobile No.</mat-label>
+            <input matInput type="text" formControlName="mobileNo">
+            <mat-error *ngIf="mobileNo?.errors?.required">
+              Mobile No is required
+                </mat-error>
+              </mat-form-field>
+          </div>
+
+          <div class="row">
+            <mat-form-field class="password" appearance="outline">
+                <mat-label>Password</mat-label>
+                <input matInput type="password" formControlName="customerPassword" />
+                <mat-error *ngIf="customerPassword?.errors?.required">
+                    Password is required 
+                  </mat-error>
+                <mat-error *ngIf="customerPassword?.errors?.pattern">
+                      Password should have min 6 letter, with a symbol, upper and lower case letters and a number.
+                  </mat-error>
+            </mat-form-field>
+          
+            <mat-form-field class="cpassword" appearance="outline">
+                <mat-label >Confirm Password</mat-label>
+                <input matInput type="password" formControlName="cpassword">
+                <mat-error *ngIf="registerform.errors?.mustMatch===false">
+                  Password and Confirm Password should match 
+                  </mat-error>
+            </mat-form-field>
+          </div>
+
+          <div class="row">
+            <mat-radio-group formControlName="gender">
+              <label class="radio-group" for="exampleFormControlInput">Gender</label>
+              <mat-radio-button value="Male">Male</mat-radio-button>
+              <mat-radio-button value="Female">Female</mat-radio-button>
+              <mat-error *ngIf="gender?.errors?.required && gender.touched">
+                Gender can't be empty
+                </mat-error>
+            </mat-radio-group>
+          </div>
+
+          <div>
+            <section class="example-section">
+                <label><input type="checkbox" formControlName="cb"> 
+                    By continuing, I agree to the 
+                  <a href="https://en.wikipedia.org/wiki/Terms_and_Conditions_May_Apply">Terms and Conditions </a>
+                  & <a href="https://en.wikipedia.org/wiki/Privacy_policy"> Privacy Policy</a>
+                </label>
+                  <mat-error *ngIf="registerform.hasError('required', 'cb')">
+                  </mat-error>
+            </section>
+          </div>
+          <div class="row">
+            <button mat-raised-button [disabled]="!registerform.valid" type="submit">Register</button>
+          </div>
+
+        </form>
+      </div>
+    </mat-card>
+</div>
+
