@@ -1,0 +1,78 @@
+#eureka:
+#  client:
+#    service-url:
+#      defaultZone: http://localhost:8076/eureka
+#    register-with-eureka: true
+#    fetch-registry: true
+#
+#server:
+#  port: 8080
+#
+#spring:
+#  application:
+#    name: "api-gateway"
+server:
+  port: 8080
+ribbon:
+  ReadTimeout: 60000
+spring:
+  main:
+    web-application-type: reactive
+  application:
+    name: api-gateway
+  cloud:
+    gateway:
+      discovery:
+        locator:
+          enabled: true
+          lowerCaseServiceId: true
+      globalcors:
+        corsConfigurations:
+          '[/**]':
+            allowedOrigins: '*'
+            allowedMethods: '*'
+            allowedHeaders: '*'
+            exposedHeaders: '*'
+      routes:
+        - id: feedback-service
+          uri: lb://feedback-service/
+          predicates:
+            - Path=/feedback-app-v1/**
+        - id: appointment-service
+          uri: lb://appointment-service/
+          predicates:
+            - Path=/appointment/**,/bookappointment/**
+        - id: cart
+          uri: lb://cart/
+          predicates:
+            - Path=/cart/**
+        - id: payment-service
+          uri: lb://payment-service/
+          predicates:
+            - Path=/payment/**
+        - id: salon-service
+          uri: lb://salon-service/
+          predicates:
+            - Path=/category/**
+        - id: email-service
+          uri: lb://email-service/
+          predicates:
+            - Path=/email/**
+        - id: user-service
+          uri: lb://user-service/
+          predicates:
+            - Path=/user/**,/employee/**
+        - id: recommendation-service
+          uri: lb://recommendation-service/
+          predicates:
+            - Path=/recommendation/**
+        - id: authentication-service
+          uri: lb://authentication-service/
+          predicates:
+            - Path=/authentication-app/**
+        - id: product-webapp
+          uri: lb://product-webapp/
+          predicates:
+            - Path=/**
+
+

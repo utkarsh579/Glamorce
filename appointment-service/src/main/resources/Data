@@ -1,0 +1,21 @@
+//Appointment URLs
+http://localhost:8081/appointment/create-appointment  POST
+http://localhost:8081/appointment/update-appointment  PUT
+http://localhost:8081/appointment/get-all-appointments GET
+http://localhost:8081/appointment/delete-appointment/  DELETE
+http://localhost:8081/appointment/get-appointment-by-employeeId/ GET
+http://localhost:8081/appointment/get-appointment-by-serviceId/  GET
+
+//BODY
+{
+        "appointmentId"  : "CLVC",
+        "startTime"      : "06:30PM",
+        "endTime"        : "07:20PM",
+        "employeeId"     : "GLA001",
+        "serviceId"      : "SER001",
+        "serviceName"    : "Hair Cut",
+        "serviceImage"   : "Image",
+        "status"         : "Not Booked",
+        "employeeName"   : "Arun",
+        "employeeImage"  : "temp_img"
+    }
